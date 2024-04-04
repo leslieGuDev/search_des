@@ -14,9 +14,9 @@ const QuantityChanger = ({ title, setQuantity, quantity }) => {
   return (
     <div className='flex justify-between text-2xl'>
       <div className='pr-6'>{title}</div>
-      <div className='flex justify-between gap-4'>
+      <div className='flex justify-between gap-2'>
         <button onClick={decrease}>-</button>
-        <div>{quantity}</div>
+        <div className='w-10 text-center'>{quantity}</div>
         <button onClick={increase}>+</button>
       </div>
     </div>

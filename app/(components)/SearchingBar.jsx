@@ -2,6 +2,7 @@
 
 import React, { createContext, useState } from "react";
 import TravelerDropdown from "./TravelerDropdown";
+import ClassDropdown from "./ClassDropdown";
 
 const searchingInfo = {
   travelers: {
@@ -9,7 +10,7 @@ const searchingInfo = {
     kids: 0,
     infants: 0,
   },
-  class: "Economy",
+  tier: "Economy",
   from: "",
   to: "",
   start: "",
@@ -23,8 +24,9 @@ const SearchingBar = () => {
 
   return (
     <SearchContext.Provider value={{ info, setInfo }}>
-      <div className='flex flex-start p-4'>
+      <div className='flex flex-between p-4 gap-8'>
         <TravelerDropdown />
+        <ClassDropdown />
       </div>
     </SearchContext.Provider>
   );
