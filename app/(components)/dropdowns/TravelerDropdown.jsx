@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { SearchContext } from "./SearchingBar";
+import { SearchContext } from "../SearchingBar";
 import QuantityChanger from "./QuantityChanger";
 import DropdownButton from "./DropdownButton";
 
