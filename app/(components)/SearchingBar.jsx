@@ -1,8 +1,9 @@
 "use client";
 
 import React, { createContext, useState } from "react";
-import TravelerDropdown from "./TravelerDropdown";
-import ClassDropdown from "./ClassDropdown";
+import TravelerDropdown from "./dropdowns/TravelerDropdown";
+import ClassDropdown from "./dropdowns/ClassDropdown";
+import LocationInput from "./locations/LocationInput";
 
 const searchingInfo = {
   travelers: {
@@ -27,6 +28,10 @@ const SearchingBar = () => {
       <div className='flex flex-between p-4 gap-8'>
         <TravelerDropdown />
         <ClassDropdown />
+      </div>
+      <div className='flex justify-between'>
+        <LocationInput title='Where from?' />
+        <LocationInput title='Where to?' />
       </div>
     </SearchContext.Provider>
   );
