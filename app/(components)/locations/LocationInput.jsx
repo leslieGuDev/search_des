@@ -37,15 +37,18 @@ const LocationInput = ({ title }) => {
   };
 
   useEffect(() => {
-    // setIsLoading(true);
-    // fetch("")
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     setLocations(data);
-    //     setIsLoading(false);
-    //   })
-    //   .catch((error) => console.log(error));
-    // setLocations(AIRPORTS);
+    setIsLoading(true);
+    debouncedSearch.length === 1
+      ? setLocations([])
+      : fetch(`http://localhost:5555/destinations/${debouncedSearch}`)
+          .then((res) => res.json())
+          .then((data) => {
+            Array.isArray(data)
+              ? setLocations(data.slice(0, 4))
+              : setLocations(data.destinations.slice(0, 4));
+            setIsLoading(false);
+          })
+          .catch((error) => console.log(error));
   }, [debouncedSearch]);
 
   return (
@@ -60,14 +63,15 @@ const LocationInput = ({ title }) => {
         placeholder={title}
         value={search}
       />
-      {showModal &&
+      {!isLoading &&
+        showModal &&
         locations.map((location) => (
           <div
             key={location.id}
             className=' text-sm text-black cursor-pointer hover:bg-gray-200 p-4'
             onMouseDown={() => handleLocation(location.name)}
           >
-            {location.name}
+            {location.name}-{location.continent}
           </div>
         ))}
     </div>

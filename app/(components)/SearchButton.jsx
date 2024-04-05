@@ -35,7 +35,16 @@ const SearchButton = ({ info }) => {
     if (from === "" || to === "" || start === "") {
       setShowModal(true);
     } else {
-      fetch();
+      fetch(`http://localhost:5555/searching`, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(info),
+      }).then((res) => {
+        return res.json();
+      });
     }
   };
 

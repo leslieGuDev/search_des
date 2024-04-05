@@ -12,7 +12,6 @@ const DropdownCalendar = ({ title }) => {
   const handleFocus = () => {
     setShowModel(true);
   };
-  console.log(info);
 
   const handleChange = (time) => {
     let formatTime = formatDate(time, "PP");
