@@ -2,7 +2,8 @@ import React from "react";
 
 const QuantityChanger = ({ title, setQuantity, quantity }) => {
   const decrease = () => {
-    if (quantity === 0) setQuantity(0);
+    if (title === "Adults" && quantity === 1) setQuantity(1);
+    else if (quantity === 0) setQuantity(0);
     else setQuantity((quantity) => quantity - 1);
   };
 
