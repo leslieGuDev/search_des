@@ -22,6 +22,7 @@ const TravelerDropdown = () => {
     setAdults(info.travelers.adults);
     setKids(info.travelers.kids);
     setInfants(info.travelers.infants);
+    setShowModel(!showModal);
   };
 
   const handleDone = () => {

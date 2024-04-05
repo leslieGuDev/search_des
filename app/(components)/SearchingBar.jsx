@@ -4,6 +4,8 @@ import React, { createContext, useState } from "react";
 import TravelerDropdown from "./dropdowns/TravelerDropdown";
 import ClassDropdown from "./dropdowns/ClassDropdown";
 import LocationInput from "./locations/LocationInput";
+import DropdownCalendar from "./calendars/DropdownCalendar";
+import SearchButton from "./SearchButton";
 
 const searchingInfo = {
   travelers: {
@@ -15,7 +17,6 @@ const searchingInfo = {
   from: "",
   to: "",
   start: "",
-  end: "",
 };
 
 export const SearchContext = createContext(null);
@@ -32,6 +33,8 @@ const SearchingBar = () => {
       <div className='flex justify-between'>
         <LocationInput title='Where from?' />
         <LocationInput title='Where to?' />
+        <DropdownCalendar title='When?' />
+        <SearchButton info={info} />
       </div>
     </SearchContext.Provider>
   );
